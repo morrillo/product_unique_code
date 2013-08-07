@@ -19,5 +19,17 @@
 #
 ##############################################################################
 
-import product_product
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from openerp.osv import fields, osv
+
+class product_product(osv.osv):
+
+    _name = 'product.product'
+    _inherit = 'product.product'
+
+    _sql_constraints = [
+        ('default_code', 'unique (default_code)', 'The product code must be unique!')
+    ]
+
+
+product_product()
+
